@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌙 A Sweet Site for Moon</title>
+    <!-- Load Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for a cute, soft look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        
+        :root {
+            --primary-pink: #FFC0CB; /* Soft Pink */
+            --secondary-purple: #C3B1E1; /* Pastel Purple */
+            --background: #FFF7F9; /* Off-White/Light Pink */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+        }
+
+        .card {
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(255, 192, 203, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 400px;
+        }
+
+        /* Replicating the 'lucide-react' icons with inline SVG for simplicity */
+        .icon {
+            display: inline-block;
+            width: 1.5rem;
+            height: 1.5rem;
+            stroke-width: 2;
+            stroke: currentColor;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Animation for the home icon */
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-bounce-slow {
+            animation: bounce-slow 4s infinite ease-in-out;
+        }
+
+        /* Utility class to hide pages */
+        .page-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center p-4 pt-12">
+
+    <!-- Header -->
+    <header class="text-center mb-8">
+        <h1 class="text-6xl font-extrabold text-pink-600 drop-shadow-lg">
+          My Sweet Site 💖
+        </h1>
+        <p class="text-gray-500 text-lg">A special delivery just for you.</p>
+    </header>
+
+    <!-- Navigation Menu (HeartMenu equivalent) -->
+    <div class="flex justify-center p-2 bg-white/70 backdrop-blur-sm rounded-full shadow-xl mb-12">
+        <button id="nav-home" class="nav-btn active p-3 md:p-4 mx-1 rounded-full transition-all duration-300 bg-pink-100 shadow-md ring-4 ring-pink-300/50 scale-110" onclick="navigate('home')" title="Home">
+            <!-- Heart Icon -->
+            <svg class="icon w-6 h-6 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </button>
+        <button id="nav-facts" class="nav-btn p-3 md:p-4 mx-1 rounded-full transition-all duration-300 bg-white hover:bg-gray-50 hover:scale-105" onclick="navigate('facts')" title="Facts">
+            <!-- Star Icon -->
+            <svg class="icon w-6 h-6 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </button>
+        <button id="nav-secret" class="nav-btn p-3 md:p-4 mx-1 rounded-full transition-all duration-300 bg-white hover:bg-gray-50 hover:scale-105" onclick="navigate('secret')" title="Secret">
+            <!-- Key Icon -->
+            <svg class="icon w-6 h-6 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-4c0-1.33 0-2 0-2H6c0 0-2 0-2-2V4"/><circle cx="18" cy="18" r="4"/><path d="m14 22 1.5-1.5M21 15.5l-1.5 1.5M10 10H6"/><circle cx="18" cy="18" r="2"/><path d="M16 8h4"/></svg>
+        </button>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="w-full max-w-lg">
+        <div class="card bg-white rounded-3xl p-6 md:p-10 shadow-2xl transition-all duration-500">
+            
+            <!-- 1. Home Page -->
+            <section id="page-home" class="page-content text-center p-6 space-y-6">
+                <!-- Smile Icon -->
+                <svg class="icon w-12 h-12 text-pink-500 mx-auto animate-bounce-slow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg>
+                <h2 class="text-4xl font-extrabold text-gray-800">
+                    Welcome, Moon!
+                </h2>
+                <p class="text-xl text-gray-600">
+                    This little corner of the internet is dedicated to you. It's full of small reminders of how amazing you are, and maybe a little secret.
+                </p>
+                <p class="text-lg font-semibold text-pink-500 p-2 bg-pink-50 rounded-lg">
+                    Use the hearts below to navigate through your pages!
+                </p>
+            </section>
+
+            <!-- 2. Facts Page -->
+            <section id="page-facts" class="page-content page-hidden text-center p-6 space-y-6">
+                <!-- Sparkles Icon -->
+                <svg class="icon w-12 h-12 text-yellow-500 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 7V4H7v11"/><path d="m5 16-1.5 1.5m10.5-3.5L16 11m-1 7-1.5 1.5m-8-2.5L4 14m8 3 1.5 1.5M19 14l1.5 1.5m-3-10L14 4"/><path d="M12 21v-3m-3 3v-3M15 21v-3"/></svg>
+                <h2 class="text-3xl font-extrabold text-gray-800">Why You're Simply the Best</h2>
+                <div id="fact-display-container" class="p-6 md:p-8 bg-purple-50/70 rounded-xl shadow-inner transition-opacity duration-300 min-h-[120px] flex items-center justify-center">
+                    <p id="fact-display" class="text-xl font-medium text-gray-700 italic opacity-100 transition-opacity duration-300">
+                        "You have a laugh that is simply infectious."
+                    </p>
+                </div>
+                <button 
+                    onclick="showNextFact()"
+                    class="bg-purple-400 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-purple-500 transition transform active:scale-95"
+                >
+                    Tell Me Another!
+                </button>
+            </section>
+
+            <!-- 3. Secret Page -->
+            <section id="page-secret" class="page-content page-hidden text-center p-6 space-y-6">
+                <!-- Key Icon -->
+                <svg class="icon w-12 h-12 text-blue-500 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-4c0-1.33 0-2 0-2H6c0 0-2 0-2-2V4"/><circle cx="18" cy="18" r="4"/><path d="m14 22 1.5-1.5M21 15.5l-1.5 1.5M10 10H6"/><circle cx="18" cy="18" r="2"/><path d="M16 8h4"/></svg>
+                <h2 class="text-3xl font-extrabold text-gray-800">Unlock the Final Note</h2>
+                
+                <div id="secret-input-area" class="space-y-4">
+                    <p class="text-lg text-gray-600">
+                        What is the special word I use to describe you? (Hint: It's a one-word nickname).
+                    </p>
+                    <div class="flex justify-center gap-2">
+                        <input type="text" id="secret-input" placeholder="Enter the secret word..."
+                            class="px-4 py-3 border-2 border-blue-200 rounded-l-lg focus:outline-none focus:border-blue-400 w-full max-w-xs transition"
+                            onkeyup="checkSecret(event)">
+                        <button onclick="checkSecret()"
+                            class="bg-blue-400 text-white font-bold px-6 py-3 rounded-r-lg hover:bg-blue-500 transition transform active:scale-95">
+                            Check
+                        </button>
+                    </div>
+                    <div id="secret-error-box" class="text-red-500 font-semibold mt-2 hidden" role="alert">
+                        Incorrect code. Try again!
+                    </div>
+                </div>
+
+                <!-- Unlocked Message (Friendly Text Style) -->
+                <div id="secret-message-box" class="hidden bg-teal-200 text-gray-800 p-4 rounded-xl shadow-md text-left transition-all duration-500 w-full max-w-sm mx-auto">
+                    <div class="flex items-start mb-2">
+                        <!-- MessageCircle Icon -->
+                        <svg class="icon w-6 h-6 text-teal-600 mr-2 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 0-.17-1.16A8 8 0 0 0 12 4a8 8 0 0 0-8 8c0 2.45.9 4.69 2.37 6.43-.8.25-1.56.37-2.37.57.17-.67.42-1.28.75-1.89C4.5 17.15 3.32 15.68 3 14"/><path d="M12 21a8.38 8.38 0 0 0 .17 1.16A8 8 0 0 0 21 12a8 8 0 0 0-8-8c-2.45 0-4.69.9-6.43 2.37.25.8.37 1.56.57 2.37-.67.17-1.28.42-1.89.75C6.85 4.5 8.32 3.32 10 3"/></svg>
+                        <p class="font-semibold text-teal-700">Message from Samael:</p>
+                    </div>
+                    <p class="text-lg leading-relaxed">
+                        Hey Moon! You cracked the code! 🔐<br/><br/>
+                        I made this site because I think you're really cool and you make my day better.
+                        Wanna grab coffee or hang out sometime? Text me back! 😊<br/><br/>
+                        <span class="text-xl">❤️</span>
+                    </p>
+                    <div class="text-xs text-right text-gray-500 mt-2">Sent now.</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="mt-8 text-gray-400 text-sm">
+        Made by Samael with love and HTML/JS for Moon
+    </footer>
+
+    <script>
+        // --- Configuration ---
+        // !!! IMPORTANT: CHANGE THIS SECRET CODE IF YOU NEED TO !!!
+        const SECRET_CODE = "shawty"; 
+
+        const pages = {
+            'home': 'page-home',
+            'facts': 'page-facts',
+            'secret': 'page-secret'
+        };
+
+        const complimentList = [
+            "You have a laugh that is simply infectious.",
+            "You possess a brilliant mind and insightful perspective.",
+            "Your kindness is a light in everyone's day.",
+            "You handle challenges with amazing grace.",
+            "You are incredibly stylish and have great taste.",
+            "Being around you feels like a warm hug.",
+        ];
+        
+        let lastFactIndex = 0; 
+
+        // --- Core Navigation Logic ---
+
+        // Function to update the view
+        function updatePage(pageKey) {
+            const pageId = pages[pageKey];
+
+            // 1. Hide all pages
+            document.querySelectorAll('.page-content').forEach(section => {
+                section.classList.add('page-hidden');
+            });
+            // 2. Deactivate all navigation buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-pink-100', 'shadow-md', 'ring-4', 'ring-pink-300/50', 'scale-110');
+                btn.classList.add('bg-white', 'hover:bg-gray-50', 'hover:scale-105');
+            });
+
+            // 3. Show the active page and set 'active' state on button
+            if (pageId) {
+                document.getElementById(pageId).classList.remove('page-hidden');
+                
+                const navBtn = document.getElementById('nav-' + pageKey);
+                // Remove the hover/default classes before adding active ones
+                navBtn.classList.remove('bg-white', 'hover:bg-gray-50', 'hover:scale-105'); 
+                navBtn.classList.add('active', 'bg-pink-100', 'shadow-md', 'ring-4', 'ring-pink-300/50', 'scale-110');
+            }
+        }
+
+        // Handles button click navigation
+        function navigate(pageKey) {
+            // Update the URL hash for simple state management and refresh support
+            window.location.hash = pageKey;
+            updatePage(pageKey);
+        }
+
+        // Handles initial load and URL hash changes
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.slice(1); // Remove '#'
+            if (pages[hash]) {
+                updatePage(hash);
+            } else {
+                updatePage('home');
+            }
+        });
+        
+        // --- Dynamic Content Logic (Facts) ---
+
+        function showNextFact() {
+            const display = document.getElementById('fact-display');
+            
+            // Generate a random index that is not the last one
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * complimentList.length);
+            } while (newIndex === lastFactIndex && complimentList.length > 1);
+            
+            const nextFact = complimentList[newIndex];
+            
+            // Animate transition (Fade out)
+            display.classList.remove('opacity-100');
+            display.classList.add('opacity-0');
+
+            setTimeout(() => {
+                display.textContent = `"${nextFact}"`;
+                lastFactIndex = newIndex;
+                
+                // Animate transition (Fade in)
+                display.classList.remove('opacity-0');
+                display.classList.add('opacity-100');
+            }, 300); // Wait for fade out to complete before changing text
+        }
+        
+        // --- Dynamic Content Logic (Secret) ---
+        
+        function checkSecret(event) {
+            // Check if 'Enter' key was pressed or if it was a button click
+            if (event && event.type === 'keyup' && event.key !== 'Enter') return;
+
+            const inputElement = document.getElementById('secret-input');
+            const input = inputElement.value.trim();
+            const inputArea = document.getElementById('secret-input-area');
+            const messageBox = document.getElementById('secret-message-box');
+            const errorBox = document.getElementById('secret-error-box');
+
+            messageBox.classList.add('hidden');
+            errorBox.classList.add('hidden');
+            
+            if (input.toLowerCase() === SECRET_CODE.toLowerCase()) {
+                messageBox.classList.remove('hidden');
+                inputArea.classList.add('hidden');
+                inputElement.value = ''; // Clear input on success
+            } else if (input.length > 0) {
+                // Show error message
+                errorBox.classList.remove('hidden');
+                setTimeout(() => errorBox.classList.add('hidden'), 2000); // Hide error after 2s
+            }
+        }
+
+        // --- Initialization ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check hash on load or default to home
+            const initialHash = window.location.hash.slice(1);
+            if (pages[initialHash]) {
+                updatePage(initialHash);
+            } else {
+                updatePage('home');
+            }
+        });
+
+    </script>
+</body>
+</html>
